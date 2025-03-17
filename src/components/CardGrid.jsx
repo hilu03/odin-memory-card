@@ -1,7 +1,5 @@
 import Card from "./Card";
 import "../styles/CardGrid.css";
-import { useState } from "react";
-
 
 function CardGrid({cards, setScore, setBestScore, selectedCards, setSelectedCards, score, bestScore}) {
   return (

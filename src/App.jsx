@@ -36,6 +36,7 @@ function App() {
       firstRender = false;
       return;
     }
+    
     const shuffle = (array) => {
       for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -45,6 +46,7 @@ function App() {
       }
       return array;
     };
+    
     // console.log("shuffle");
     setCards(shuffle(cards).slice());
   }, [selectedCards]);
