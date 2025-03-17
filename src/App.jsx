@@ -3,6 +3,8 @@ import './styles/App.css';
 import CardGrid from './components/CardGrid';
 import Header from './components/Header';
 
+let firstRender = false;
+
 function App() {
   const [cards, setCards] = useState([]);
   const [score, setScore] = useState(0);
@@ -17,7 +19,7 @@ function App() {
         throw new Error(`Response status: ${response.status}`);
       }
       const json = await response.json();
-      console.log(json.cards);
+      // console.log(json.cards);
       setCards(json.cards);
     } catch (error) {
       console.error(error.message);
@@ -26,9 +28,14 @@ function App() {
 
   useEffect(() => {
     fetchData();
+    firstRender = true;
   }, []);
 
   useEffect(() => {
+    if (firstRender) {
+      firstRender = false;
+      return;
+    }
     const shuffle = (array) => {
       for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -38,7 +45,7 @@ function App() {
       }
       return array;
     };
-
+    // console.log("shuffle");
     setCards(shuffle(cards).slice());
   }, [selectedCards]);
 
