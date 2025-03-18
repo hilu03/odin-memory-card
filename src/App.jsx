@@ -51,9 +51,16 @@ function App() {
     setCards(shuffle(cards).slice());
   }, [selectedCards]);
 
+  const newGameEvent = () => {
+    fetchData();
+    firstRender = true;
+    setScore(0);
+    setSelectedCards([]);
+  }
+
   return (
     <>
-      <Header score={score} bestScore={bestScore}/>
+      <Header score={score} bestScore={bestScore} newGameEvent={newGameEvent}/>
       <CardGrid setCards={setCards} cards={cards} score={score} bestScore={bestScore} setScore={setScore} setBestScore={setBestScore} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
     </>
   )

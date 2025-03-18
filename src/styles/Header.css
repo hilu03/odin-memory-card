@@ -21,3 +21,25 @@ header div {
   gap: 50px;
   flex-wrap: wrap;
 }
+
+header button {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  background-color: #ffdb58;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+header button:hover {
+  opacity: 0.7;
+}
+
+header .credit-link {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  color: white;
+  font-size: 18px;
+}
